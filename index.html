@@ -37,7 +37,7 @@
 
 <h3 id="Guitar-Section"><a href="#Guitar-Section" class="headerlink" title="Guitar Section:"></a>Guitar Section:</h3><a href="https://www.youtube.com/watch?v=qBzMhQUG0Rw" title="" target="">I&#39;m Yours</a>
 
-<a href="https://www.youtube.com/watch?v=76ZOPqcjK8c" title="" target="">Strumming &amp; Muting</a></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-10-15T15:59:17.000Z" title="2022/10/15 17:59:17">2022-10-15</time></span><span class="level-item">Updated&nbsp;<time dateTime="2022-10-17T22:42:09.722Z" title="2022/10/18 00:42:09">2022-10-18</time></span><span class="level-item">10 minutes read (About 1541 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/FIX-Protocol/">金融交换协议入门</a></h1><div class="content"><blockquote>
+<a href="https://www.youtube.com/watch?v=76ZOPqcjK8c" title="" target="">Strumming &amp; Muting</a></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-10-15T15:59:17.000Z" title="2022/10/15 17:59:17">2022-10-15</time></span><span class="level-item">Updated&nbsp;<time dateTime="2022-10-17T22:43:11.730Z" title="2022/10/18 00:43:11">2022-10-18</time></span><span class="level-item">10 minutes read (About 1542 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/FIX-Protocol/">金融交换协议入门</a></h1><div class="content"><blockquote>
 <p>背景知识: TCP&#x2F;UDP， 一些金融小知识，但是都不关键<br>写在前面：<br>这篇文章适合刚入门金融的程序员快速了解。<br>Inspired by Vamei’s <a target="_blank" rel="noopener" href="https://www.cnblogs.com/vamei/archive/2012/12/05/2802811.html">协议森林</a>系列。</p>
 </blockquote>
 <h2 id="什么是交易所？"><a href="#什么是交易所？" class="headerlink" title="什么是交易所？"></a>什么是交易所？</h2><p>请记住下面这个数据结构的长相：<br><img src="/../images/fix-protocol/Xnip2022-10-16_20-25-41.jpg" alt="what_is_exchange"></p>
@@ -85,7 +85,7 @@
 <p>MD下面的一条短黑线，代表了交易所需要广播所有的trade &#x2F; order change event, 来告诉所有的客户，交易所自己维护的所有Instruments的 Order Books是如何变化的。广播保证了公平性–所有的客户都在同一起跑线上(至于后面跑的快不快就要靠客户自己了)。</p>
 <h2 id="为什么需要协议？"><a href="#为什么需要协议？" class="headerlink" title="为什么需要协议？"></a>为什么需要协议？</h2><p>理论上，作为一个交易所的客户，只有知道交易所的所有Buy&#x2F;Sales才能做出选择；<br>如果存在一种完美的网络协议，能够有足够的带宽&#x2F;速度，那么交易所直接就把所有的Order Books直接发给客户让客户慢慢挑选就行了。</p>
 <p>但是互联网不是完美的 – 它很烂。 所以我们只能想想其他办法。</p>
-<p><strong>我们需要一个协议！</strong></p>
+<p><strong>我们需要专门的协议！</strong></p>
 <p>很多Exchange都会有自己独立的协议，供客户使用。独立协议的好处是，自己能容易的定义&#x2F;修改新功能，缺点就是每个交易所都有不同的协议的话，非常的碎片化。( <del>每个交易所都觉得我的协议最好</del> )</p>
 <p>通过协议，客户可以接收Market Data(MD)的所有message来重建交易所内部的Order Book。通过广播，保证了所有的client都是公平的接受到order book的更新。通常只需要几种Message就能重建Order Book了。</p>
 <p>同时，在Port -&gt; Client的交易session中，大部分也会通过私有协议实现交易。</p>
