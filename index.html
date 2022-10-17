@@ -37,10 +37,10 @@
 
 <h3 id="Guitar-Section"><a href="#Guitar-Section" class="headerlink" title="Guitar Section:"></a>Guitar Section:</h3><a href="https://www.youtube.com/watch?v=qBzMhQUG0Rw" title="" target="">I&#39;m Yours</a>
 
-<a href="https://www.youtube.com/watch?v=76ZOPqcjK8c" title="" target="">Strumming &amp; Muting</a></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-10-15T15:59:17.000Z" title="2022/10/15 17:59:17">2022-10-15</time></span><span class="level-item">Updated&nbsp;<time dateTime="2022-10-17T22:27:05.306Z" title="2022/10/18 00:27:05">2022-10-18</time></span><span class="level-item">10 minutes read (About 1487 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/FIX-Protocol/">金融交换协议入门</a></h1><div class="content"><blockquote>
+<a href="https://www.youtube.com/watch?v=76ZOPqcjK8c" title="" target="">Strumming &amp; Muting</a></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-10-15T15:59:17.000Z" title="2022/10/15 17:59:17">2022-10-15</time></span><span class="level-item">Updated&nbsp;<time dateTime="2022-10-17T22:34:14.886Z" title="2022/10/18 00:34:14">2022-10-18</time></span><span class="level-item">10 minutes read (About 1483 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/FIX-Protocol/">金融交换协议入门</a></h1><div class="content"><blockquote>
 <p>背景知识: TCP&#x2F;UDP， 一些金融小知识，但是都不关键<br>写在前面：<br>这篇文章适合刚入门金融的程序员快速了解。<br>这篇文章也是</p>
 </blockquote>
-<h2 id="什么是交易所？"><a href="#什么是交易所？" class="headerlink" title="什么是交易所？"></a>什么是交易所？</h2><p>请记住下面这个数据结构的长相：<br><img src="/source/images/fix-protocol/Xnip2022-10-16_20-25-41.jpg" alt="what_is_exchange"></p>
+<h2 id="什么是交易所？"><a href="#什么是交易所？" class="headerlink" title="什么是交易所？"></a>什么是交易所？</h2><p>请记住下面这个数据结构的长相：<br><img src="/../images/fix-protocol/Xnip2022-10-16_20-25-41.jpg" alt="what_is_exchange"></p>
 <p>每一个交易所都要负责维护这个数据结构 Order Book. </p>
 <ul>
 <li>Buy(bid)代表了出价，从高到底排序。(最高出价 -&gt; 优先级最高)</li>
@@ -54,7 +54,7 @@
 </ol>
 <p>当然，每一个Order Book 只会对应一个单一Instrument <a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E9%87%91%E8%9E%8D%E5%95%86%E5%93%81">(金融商品， 详见Wiki)</a>， 上图为APPL，苹果的股票。</p>
 <p>每一个交易所都会维护一大串的Order Book，如下图所示:</p>
-<p><img src="/source/images/fix-protocol/Xnip2022-10-16_21-13-22.jpg" alt="exchange-image"></p>
+<p><img src="/../images/fix-protocol/Xnip2022-10-16_21-13-22.jpg" alt="exchange-image"></p>
 <hr>
 <h3 id="不同的Order-Book"><a href="#不同的Order-Book" class="headerlink" title="不同的Order Book"></a>不同的Order Book</h3><p>Order Book 也有一些交易定价的不同，分为不同种类；</p>
 <p>常见的是:</p>
@@ -75,7 +75,7 @@
 </blockquote>
 <hr>
 <h2 id="交易所架构"><a href="#交易所架构" class="headerlink" title="交易所架构:"></a>交易所架构:</h2><p>交易所架构会有很多种，就像电商网站也不止淘宝一种设计。这里我们主要以理解交易所功能为主，以一种简单(但是完全可用)的架构来大致介绍。</p>
-<p><img src="/source/images/fix-protocol/Xnip2022-10-18_00-02-52.jpg" alt="exchange"></p>
+<p><img src="/../images/fix-protocol/Xnip2022-10-18_00-02-52.jpg" alt="exchange"></p>
 <blockquote>
 <p>Source: <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=b1e4t2k2KJY">https://www.youtube.com/watch?v=b1e4t2k2KJY</a></p>
 </blockquote>
@@ -89,6 +89,10 @@
 <p>很多Exchange都会有自己独立的协议，供客户使用。独立协议的好处是，自己能容易的定义&#x2F;修改新功能，缺点就是每个交易所都有不同的协议的话，非常的碎片化。( <del>每个交易所都觉得我的协议最好</del> )</p>
 <p>通过协议，接收Market Data(MD)的所有message来重建交易所内部的Order Book (UDP Multicasting)。通过广播，保证了所有的client都是公平的接受到order book的更新。通常只需要几种Message就能重建Order Book了。</p>
 <p>同时，在Port -&gt; Client的交易session中，大部分也会通过私有协议实现交易。</p>
+<p><img src="/../images/fix-protocol/Xnip2022-10-16_00-03-03.jpg" alt="image"></p>
+<blockquote>
+<p>Source: <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=lEBiyNojTqY">https://www.youtube.com/watch?v=lEBiyNojTqY</a></p>
+</blockquote>
 <hr>
 <p>一些Message流数据(来自Jane Street Presentation，或许有些陈旧):</p>
 <p><strong>Add Orders</strong> - about 50% messages</p>
@@ -99,10 +103,6 @@
 <hr>
 <h2 id="怎么看协议？"><a href="#怎么看协议？" class="headerlink" title="怎么看协议？"></a>怎么看协议？</h2><p>互联网的设计就是分层的;不同层需要有不同的协议来支持运行,每一层都会实现某些功能来支持上层运行(校对，寻路，可靠传输，等等脏活累活)。</p>
 <p>Luckily, 金融交易作为一种high level的应用，有了其他层的支持，我们只需要在最高一层进行交易协议的实现。</p>
-<p><img src="/source/images/fix-protocol/Xnip2022-10-16_00-03-03.jpg" alt="image"></p>
-<blockquote>
-<p>Source: <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=lEBiyNojTqY">https://www.youtube.com/watch?v=lEBiyNojTqY</a></p>
-</blockquote>
 <p><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E9%87%91%E8%9E%8D%E8%B3%87%E8%A8%8A%E4%BA%A4%E6%8F%9B%E5%8D%94%E5%AE%9A">Fix金融资讯交换协定 - Wikipedia</a></p>
 <p>FIX作为一种通用协议，包含两个set of messages:</p>
 <h3 id="Session-Layer-Message"><a href="#Session-Layer-Message" class="headerlink" title="Session Layer Message"></a>Session Layer Message</h3><p>主要作为信息传递</p>
